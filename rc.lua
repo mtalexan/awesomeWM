@@ -249,10 +249,11 @@ root.buttons(awful.util.table.join(
 ))
 -- }}}
 
--- Used for keybindings below to control volume
+-- Commands Used for keybindings below
 local volume_up = "amixer -D pulse sset Master 5%+"
 local volume_up = "amixer -D pulse sset Master 5%-"
 local volume_mute_toggle = "amixer -D pulse set Master +1 toggle"
+local lockscreen = "xscreensaver-command -lock"
 
 -- {{{ Key bindings
 globalkeys = awful.util.table.join(
@@ -279,6 +280,9 @@ globalkeys = awful.util.table.join(
     ),
     awful.key({ modkey,           }, "w", function () mymainmenu:show() end,
               {description = "show main menu", group = "awesome"}),
+
+	-- Lock the screen
+	awful.key({ modkey,  } , "l", function () awful.spawn(lockscreen) end, {description = "lock the screen with xscreensaver", group = "launcher"}),
 
     -- Volume Keys with no modifiers
 	awful.key({}, "XF86AudioRaiseVolume", function () awful.spawn(volume_down) end, {description = "increase volume", group = "custom"}),

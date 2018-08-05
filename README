@@ -1,3 +1,9 @@
+For locking:
+1. Install xscreensaver
+2. Add the following command to ~/.xinitrc, creating it if it doesn't yet exist
+	"xscreensaver --no-splash &"
+3. The keybinding is running "xscreensaver-command -lock"
+
 For widgets:
 
 1. Copy the arc-icon-theme/Arc folder into /usr/share/icons/
