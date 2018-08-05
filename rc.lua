@@ -60,18 +60,18 @@ modkey = "Mod4"
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
     awful.layout.suit.tile,
-    awful.layout.suit.tile.left,
+    -- awful.layout.suit.tile.left,
     -- awful.layout.suit.tile.bottom,
     -- awful.layout.suit.tile.top,
-    -- awful.layout.suit.fair,
+    awful.layout.suit.fair,
     awful.layout.suit.fair.horizontal,
-    awful.layout.suit.spiral,
+    -- awful.layout.suit.spiral,
     awful.layout.suit.spiral.dwindle,
     -- awful.layout.suit.max,
     -- awful.layout.suit.max.fullscreen,
     -- awful.layout.suit.magnifier,
     awful.layout.suit.corner.nw,
-    awful.layout.suit.corner.ne,
+    -- awful.layout.suit.corner.ne,
     -- awful.layout.suit.corner.sw,
     -- awful.layout.suit.corner.se,
     awful.layout.suit.floating,
@@ -249,6 +249,11 @@ root.buttons(awful.util.table.join(
 ))
 -- }}}
 
+-- Used for keybindings below to control volume
+local volume_up = "amixer -D pulse sset Master 5%+"
+local volume_up = "amixer -D pulse sset Master 5%-"
+local volume_mute_toggle = "amixer -D pulse set Master +1 toggle"
+
 -- {{{ Key bindings
 globalkeys = awful.util.table.join(
     awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
@@ -274,6 +279,11 @@ globalkeys = awful.util.table.join(
     ),
     awful.key({ modkey,           }, "w", function () mymainmenu:show() end,
               {description = "show main menu", group = "awesome"}),
+
+    -- Volume Keys with no modifiers
+	awful.key({}, "XF86AudioRaiseVolume", function () awful.spawn(volume_down) end, {description = "increase volume", group = "custom"}),
+	awful.key({}, "XF86AudioLowerVolume", function () awful.spawn(volume_up) end, {description = "decrease volume", group = "custom"}),
+	awful.key({}, "XF86AudioMute", function () awful.spawn(volume_mute_toggle) end, {description = "mute volume", group = "custom"}),
 
     -- Layout manipulation
     awful.key({ modkey, "Shift"   }, "k", function () awful.client.swap.byidx(  1)    end,
