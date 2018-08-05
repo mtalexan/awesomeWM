@@ -41,10 +41,11 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
-beautiful.init(awful.util.get_themes_dir() .. "default/theme.lua")
+beautiful.init(awful.util.get_themes_dir() .. "zenburn/theme.lua")
+
 
 -- This is used later as the default terminal and editor to run.
-terminal = "terminator"
+terminal = "xterm"
 editor = os.getenv("EDITOR") or "emacs"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -120,7 +121,11 @@ mykeyboardlayout = awful.widget.keyboardlayout()
 
 -- {{{ Wibar
 -- Create a textclock widget
-mytextclock = wibox.widget.textclock()
+local mytextclock = wibox.widget.textclock()
+local battery_widget = require("awesome-wm-widgets.battery-widget.battery")
+local volumebar = require("awesome-wm-widgets.volumebar-widget.volumebar")
+local sprtr = wibox.widget.textbox()
+sprtr:set_text(" : ")
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = awful.util.table.join(
@@ -223,6 +228,11 @@ awful.screen.connect_for_each_screen(function(s)
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
             mykeyboardlayout,
+            sprtr,
+            volumebar,
+            sprtr,
+            battery_widget,
+            sprtr,
             wibox.widget.systray(),
             mytextclock,
             s.mylayoutbox,
@@ -294,8 +304,10 @@ globalkeys = awful.util.table.join(
         {description = "go back", group = "client"}),
 
     -- Standard program
-    awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
+    awful.key({ modkey,           }, "F1", function () awful.spawn(terminal) end,
               {description = "open a terminal", group = "launcher"}),
+    awful.key({ modkey,           }, "F2", function () awful.spawn("firefox") end,
+              {description = "open firefox", group = "launcher"}),
     awful.key({ modkey, "Control" }, "r", awesome.restart,
               {description = "reload awesome", group = "awesome"}),
     awful.key({ modkey, "Shift"   }, "q", awesome.quit,
@@ -560,14 +572,17 @@ client.connect_signal("mouse::enter", function(c)
     end
 end)
 
+-- Enable window border coloring on focus
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
+
 -- }}}
 -- Autorun programs
 autorun = true
 autorunApps =
    {
-      "nautilus -n --no-desktop",
+-- Nautilus options to start without opening a window or managing the desktop don't work
+--      "nautilus -n --no-desktop",
       "vmware-user-suid-wrapper",
       "nm-applet",
    }
