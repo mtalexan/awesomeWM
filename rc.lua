@@ -596,9 +596,10 @@ autorun = true
 autorunApps =
    {
 -- Nautilus options to start without opening a window or managing the desktop don't work
---      "nautilus -n --no-desktop",
+--      "nautilus --no-default-window --no-desktop",
       "vmware-user-suid-wrapper",
       "nm-applet",
+      "xscreensaver -nosplash",
    }
 if autorun then
    for app = 1, #autorunApps do
