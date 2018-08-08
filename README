@@ -10,3 +10,5 @@ For widgets:
 2. The volumebar-widget might not be visible because the top and bottom marging setting the bar width might be too big.
 2.a. Edit the margins on line 33 and 34 of awesome-wm-widgets/volumebar-widget/volumebar.lua
 2.b. Adjust them until the desired bar thickness is achieved
+
+The battery icon can be used instead of xfce4-power-manager if desired, though it only reports status.  Uncomment the relevant lines in the WiBox

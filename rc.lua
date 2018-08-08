@@ -122,7 +122,7 @@ mykeyboardlayout = awful.widget.keyboardlayout()
 -- {{{ Wibar
 -- Create a textclock widget
 local mytextclock = wibox.widget.textclock()
-local battery_widget = require("awesome-wm-widgets.battery-widget.battery")
+-- local battery_widget = require("awesome-wm-widgets.battery-widget.battery")
 local volumebar = require("awesome-wm-widgets.volumebar-widget.volumebar")
 local sprtr = wibox.widget.textbox()
 sprtr:set_text(" : ")
@@ -228,11 +228,11 @@ awful.screen.connect_for_each_screen(function(s)
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
             mykeyboardlayout,
-            sprtr,
+--            sprtr,
             volumebar,
-            sprtr,
-            battery_widget,
-            sprtr,
+--            sprtr,
+--            battery_widget,
+--            sprtr,
             wibox.widget.systray(),
             mytextclock,
             s.mylayoutbox,
@@ -600,6 +600,7 @@ autorunApps =
       "vmware-user-suid-wrapper",
       "nm-applet",
       "xscreensaver -nosplash",
+	  "xfce4-power-manager",
    }
 if autorun then
    for app = 1, #autorunApps do
