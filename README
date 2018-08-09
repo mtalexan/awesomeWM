@@ -1,8 +1,11 @@
 For locking:
-1. Install xscreensaver
-2. Add the following command to ~/.xinitrc, creating it if it doesn't yet exist
-	"xscreensaver --no-splash &"
-3. The keybinding is running "xscreensaver-command -lock"
+1. Install either xscreensaver or light-locker
+  a. light-locker only if you're using lightdm instead of gdm
+2. Update the rc.lua to uncomment the key combo and the startup for the one you're using (light-locker vs xscreensaver)
+
+Light-Locker will simply use the lightdm login screen, configure it accordingly.
+
+xscreensaver is configured via xscreensaver-demo
 
 For widgets:
 
