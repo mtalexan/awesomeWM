@@ -604,6 +604,7 @@ autorunApps =
 --	  "light-locker --no-late-locking --lock-on-suspend --lock-on-lid --idle-hint",
       "screen-locker-start.sh",
 	  "xfce4-power-manager",
+      "blueman-applet",
    }
 if autorun then
    for app = 1, #autorunApps do

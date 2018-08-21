@@ -14,7 +14,9 @@ For widgets:
 2.a. Edit the margins on line 33 and 34 of awesome-wm-widgets/volumebar-widget/volumebar.lua
 2.b. Adjust them until the desired bar thickness is achieved
 
-The battery icon can be used instead of xfce4-power-manager if desired, though it only reports status.  Uncomment the relevant lines in the WiBox
+Built-in widgets:
+1. Power icon in the taskbar is available thru xfce4-power-manager if the xfce4-power-manager-settings enables the taskbar option
+2. Bluetooth is available in the taskbar with the blueman-applet
 
 
 For awesome 4.0 on Ubuntu 16.04:
