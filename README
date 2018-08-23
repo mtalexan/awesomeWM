@@ -17,7 +17,8 @@ For widgets:
 Built-in widgets:
 1. Power icon in the taskbar is available thru xfce4-power-manager if the xfce4-power-manager-settings enables the taskbar option
 2. Bluetooth is available in the taskbar with the blueman-applet
-
+2.a. For bluetooth to work, bluetoothctl also has to be running
+3. Volume can also be provided with pasystray on xfce4 or gallium
 
 For awesome 4.0 on Ubuntu 16.04:
 

@@ -229,7 +229,7 @@ awful.screen.connect_for_each_screen(function(s)
             layout = wibox.layout.fixed.horizontal,
             mykeyboardlayout,
 --            sprtr,
-            volumebar,
+--            volumebar,
 --            sprtr,
 --            battery_widget,
 --            sprtr,
@@ -599,12 +599,14 @@ autorunApps =
 -- Nautilus options to start without opening a window or managing the desktop don't work
 --      "nautilus --no-default-window --no-desktop",
       "vmware-user-suid-wrapper",
+--      "pasystray",
+--      "blueman-applet",
+--      "bluetoothctl",
       "nm-applet",
       "xscreensaver -nosplash",
 --	  "light-locker --no-late-locking --lock-on-suspend --lock-on-lid --idle-hint",
       "screen-locker-start.sh",
 	  "xfce4-power-manager",
-      "blueman-applet",
    }
 if autorun then
    for app = 1, #autorunApps do
