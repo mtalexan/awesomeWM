@@ -599,9 +599,9 @@ autorunApps =
 -- Nautilus options to start without opening a window or managing the desktop don't work
 --      "nautilus --no-default-window --no-desktop",
       "vmware-user-suid-wrapper",
---      "pasystray",
---      "blueman-applet",
---      "bluetoothctl",
+      "pasystray",
+      "blueman-applet",
+      "bluetoothctl",
       "nm-applet",
       "xscreensaver -nosplash",
 --	  "light-locker --no-late-locking --lock-on-suspend --lock-on-lid --idle-hint",
