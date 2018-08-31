@@ -260,10 +260,13 @@ local lockscreen = "xscreensaver-command -lock"
 globalkeys = awful.util.table.join(
     awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
               {description="show help", group="awesome"}),
-    awful.key({ modkey,           }, "Left",   awful.tag.viewprev,
-              {description = "view previous", group = "tag"}),
-    awful.key({ modkey,           }, "Right",  awful.tag.viewnext,
-              {description = "view next", group = "tag"}),
+
+-- these have been re-bound to be move to screen
+--    awful.key({ modkey,           }, "Left",   awful.tag.viewprev,
+--              {description = "view previous", group = "tag"}),
+--    awful.key({ modkey,           }, "Right",  awful.tag.viewnext,
+--              {description = "view next", group = "tag"}),
+
     awful.key({ modkey,           }, "Escape", awful.tag.history.restore,
               {description = "go back", group = "tag"}),
 
@@ -392,7 +395,13 @@ clientkeys = awful.util.table.join(
     awful.key({ modkey, "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end,
               {description = "move to master", group = "client"}),
     awful.key({ modkey,           }, "o",      function (c) c:move_to_screen()               end,
-              {description = "move to screen", group = "client"}),
+              {description = "move to screen", group = "screen"}),
+
+    awful.key({ modkey,           }, "Left",      function (c) c:move_to_screen()               end,
+              {description = "move to screen", group = "screen"}),
+    awful.key({ modkey,           }, "Right",      function (c) c:move_to_screen()               end,
+              {description = "move to screen", group = "screen"}),
+
     awful.key({ modkey,           }, "t",      function (c) c.ontop = not c.ontop            end,
               {description = "toggle keep on top", group = "client"}),
     awful.key({ modkey,           }, "n",
