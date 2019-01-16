@@ -251,7 +251,7 @@ root.buttons(awful.util.table.join(
 
 -- Commands Used for keybindings below
 local volume_up = "amixer -D pulse sset Master 5%+"
-local volume_up = "amixer -D pulse sset Master 5%-"
+local volume_down = "amixer -D pulse sset Master 5%-"
 local volume_mute_toggle = "amixer -D pulse set Master +1 toggle"
 local lockscreen = "xscreensaver-command -lock"
 -- local lockscreen = "light-locker-command --lock"
